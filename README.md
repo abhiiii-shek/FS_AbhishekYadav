@@ -29,32 +29,31 @@ Keeping It Simple, I am going to provide the approach for this project with high
 
 # A basic flow diagram:
 
-[Start / Open App]  
-|  
-[Login / Register] ---→ [Generate Unique Username]  
-|  
-[Home Screen]  
-├── Enter Home Location  
-├── Enter Destination (School/College)  
-└── Save & Submit  
-|  
-[Map Screen]  
-├── Shows route from Home → Destination  
-├── Fetches nearby students on similar routes  
-└── Displays students as anonymous icons  
-|  
-[Student Icon Click]  
-├── View basic profile (Anonymous username, same route)  
-└── Option: "Chat"  
-|  
-[Chat Screen]  
-├── One-to-one messaging  
-├── Anonymous identity preserved  
-└── Option: "Back to Map"  
-|  
-[End / Logout]  
+    [Start / Open App]
+            |
+    [Login / Register] ---→ [Generate Unique Username]
+            |
+    [Home Screen]
+       ├── Enter Home Location
+       ├── Enter Destination (School/College)
+       └── Save & Submit
+            |
+    [Map Screen]
+       ├── Shows route from Home → Destination
+       ├── Fetches nearby students on similar routes
+       └── Displays students as anonymous icons
+            |
+    [Student Icon Click]
+       ├── View basic profile (Anonymous username, same route)
+       └── Option: "Chat"
+            |
+    [Chat Screen]
+       ├── One-to-one messaging
+       ├── Anonymous identity preserved
+       └── Option: "Back to Map"
+            |
+    [End / Logout]
 
----
 
 # Backend
 
@@ -74,33 +73,35 @@ Keeping It Simple, I am going to provide the approach for this project with high
 
 # A basic flow diagram:
 
-[Frontend Request]  
-|  
-[API Gateway / Server]  
-|  
-[Authentication Service]  
-├── Validate Login/Register  
-└── Generate Unique Anonymous Username  
-|  
-[Student Database]  
-├── Store user credentials (securely)  
-├── Store unique anonymous username  
-└── Store location & destination  
-|  
-[Route Matching Engine]  
-├── Get student's route (from Maps API)  
-├── Compare with existing student routes  
-├── Calculate overlap/proximity  
-└── Generate match suggestions  
-|   
-[Matchmaking Service]  
-├── Return matched student IDs (anonymous usernames)  
-├── Attach approximate location markers  
-└── Send back to frontend  
-|  
-[Chat Service (WebSocket / Realtime)]  
-├── Establish 1:1 chat connection  
-├── Route messages securely  
-└── Store chat logs (optional)  
-|  
-[Response → Frontend]  
+
+    [Frontend Request]  
+            |  
+    [API Gateway / Server]  
+            |  
+    [Authentication Service]  
+       ├── Validate Login/Register  
+       └── Generate Unique Anonymous Username  
+            |  
+    [Student Database]  
+       ├── Store user credentials (securely)  
+       ├── Store unique anonymous username  
+       └── Store location & destination  
+            |  
+    [Route Matching Engine]  
+       ├── Get student's route (from Maps API)  
+       ├── Compare with existing student routes  
+       ├── Calculate overlap/proximity  
+       └── Generate match suggestions  
+            |   
+    [Matchmaking Service]  
+       ├── Return matched student IDs (anonymous usernames)  
+       ├── Attach approximate location markers  
+       └── Send back to frontend  
+            |  
+    [Chat Service (WebSocket / Realtime)]  
+       ├── Establish 1:1 chat connection  
+       ├── Route messages securely  
+       └── Store chat logs (optional)  
+            |  
+    [Response → Frontend]
+
