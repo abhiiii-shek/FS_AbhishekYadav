@@ -3,7 +3,7 @@
       A full-stack app that helps students carpool by matching similar commute routes. Users enter home and destination, see nearby commuters on a map, and chat anonymously in real-time. It ensures privacy with unique usernames and uses route matching to optimize shared       rides,saving money and time, reducing traffic and pollution,  cutting commute costs.<br>
 
 Keeping It Simple, I am going to provide the approach for this project with high overview structure and planning.
-
+---
 # FRONTEND
 
       - To optimize it better we will use REACT VITE or Angular instead of relying on traditional HTML and CSS.  
@@ -20,7 +20,7 @@ Keeping It Simple, I am going to provide the approach for this project with high
         - The pop-up marker will act as a button with username as tooltip (anonymous names) which will serve as opening a real-time chat with users nearby.  
         - When the map is displayed we will also show nearby pop-ups which fall within a certain threshold radius for sharing rides.  
         - An **Error Page** for showing errors. If hit wrong URL or failed to fetch from APIs etc.  
-
+---
 
     #   A basic flow diagram:<br>
     [Start / Open App]
@@ -47,7 +47,7 @@ Keeping It Simple, I am going to provide the approach for this project with high
        └── Option: "Back to Map"
             |
   [End / Logout]
-
+---
  # Backend
 
       - We will use **Node.js** as runtime environment for running our JavaScript and Express for routing and other stuff, integrated with databases like MongoDB (for document collection) or MySQLi (if needed to store in tables).  
@@ -61,7 +61,7 @@ Keeping It Simple, I am going to provide the approach for this project with high
         - An endpoint where we will write overlapping route logic by comparing routes of different users nearby provided by nearby users frontend MapBox API, a basic approach can be calculating how much distance is overlapping in same direction by all users and rank them for particular user and return filtered markers for nearby best users.  
         - For real-time chat service we will use WebSockets (Socket.io) with one-to-one connections only.  
         - Store previous chats in database for fetching it later, save and return to frontend only few messages by deleting old messages using a queue or last-in-first-out based data structure.  
-
+---
 #   A basic flow diagram:<br>
     [Frontend Request]  
             |  
