@@ -2,23 +2,24 @@
 # High Overview Description : (Student Commute Optimizer - Ride Sharing App) 
       A full-stack app that helps students carpool by matching similar commute routes. Users enter home and destination, see nearby commuters on a map, and chat anonymously in real-time. It ensures privacy with unique usernames and uses route matching to optimize shared       rides,saving money and time, reducing traffic and pollution,  cutting commute costs.<br>
 
-Keeping It Simple,I am going to provide the approach for this project with high overview structure and planning.<br>
+Keeping It Simple, I am going to provide the approach for this project with high overview structure and planning.
 
-#FRONTEND: <br>
--To optimize it better we will use REACT VITE or Angular instead of relying on traditional HTML and CSS.<br>
--Flow of the app will be : <br>
-    - A LogIn And Register Page which will send user details to the backend authentication and create user endpoint API which return an unique username (username should be random to keep anonimity) to the frontend to display and stored in global state(useContext or REDUX).<br>
-    - Store user JWT token and other credentials excluding password in some store/slice.<br>
-    - An /route or /search page(routes) which contains an form for input souce and input destination and Submit button<br>
-    -For input locations we will use address autocomplte apis of leaflet or any other autocomplete providing host such that user is not able to enter any non existing address.<br>
-    -Validations of inputs must also taken care of such as required field etc.<br>
-    -If possible we can allow the page to get user current location using browser navigation api for latitude and longtitude coordinates.<br>
-    -The form with source and destination is then submitted through backend route generating api for route processing.<br>
-    -The backend provides best route with minimum obstruction which the frontend shows.<br>
-    -For showing routes we will use map box gl with pop up marker showing loaction of user source and destination inputs.<br>
-    -The pop up marker will act as a button with username as tooltip(anonymous names) which will serve as opening a real time chat with users nearby.<br>
-    -When the map is displayed we will also show nearby pop ups which fall within a certain threshold radius for sharing rides.<br>
-    -An error page for showing errors.If hit wrong url or failed to fetch from apis etc.<br>
+# FRONTEND
+
+      - To optimize it better we will use **REACT VITE** or **Angular** instead of relying on traditional HTML and CSS.  
+      - Flow of the app will be:  
+        - A **LogIn and Register Page** which will send user details to the backend authentication and create user endpoint API which returns a unique username (username should be random to keep anonymity) to the frontend to display and stored in global state                      (useContext or REDUX).  
+        - Store user **JWT token** and other credentials excluding password in some store/slice.  
+        - An `/route` or `/search` page (routes) which contains a form for **input source** and **input destination** and a **Submit button**.  
+        - For input locations we will use **address autocomplete APIs** of Leaflet or any other autocomplete providing host such that user is not able to enter any non-existing address.  
+        - **Validations** of inputs must also be taken care of such as required field etc.  
+        - If possible we can allow the page to get user **current location** using browser navigation API for latitude and longitude coordinates.  
+        - The form with source and destination is then submitted through **backend route generating API** for route processing.  
+        - The backend provides best route with minimum obstruction which the frontend shows.  
+        - For showing routes we will use **Mapbox GL** with pop-up marker showing location of user source and destination inputs.  
+        - The pop-up marker will act as a button with **username as tooltip** (anonymous names) which will serve as opening a **real-time chat** with users nearby.  
+        - When the map is displayed we will also show **nearby pop-ups** which fall within a certain threshold radius for sharing rides.  
+        - An **Error Page** for showing errors. If hit wrong URL or failed to fetch from APIs etc.  
 
 
     #   A basic flow diagram:<br>
@@ -47,19 +48,19 @@ Keeping It Simple,I am going to provide the approach for this project with high 
             |
   [End / Logout]
 
-  #Backend:<br>
+ # Backend
 
-  -We will use nodejs as runtime environment for running our javascript and express for routing and other stuff , integrated with databases like MongoDb (for document collection) or Mysqli(if needed to store in tables).<br>
-  -Flow of the backend will be:<br>
-      - Express and node setup with configured ports , env , databases.<br>
-      - Routes to create endpoints for different functions.<br>
-      - Middle Wares for validating details before we hit actual endpoints.<br>
-      -Create and verify endpoints using JWT tokens.<br>
-      -Using MapBox api to create an optimized route and send it to frontend for display.<br>
-      -Database having tables or collections storing essential data such user unique anonymous usernames , locations.<br>
-      -An endpoint where we will write overlapping route logic by comparing routes of different users nearby provided by nearby users frontend mapbox api , a basic appraoch can be calculating how much distance is overlapping in same direction by all users and rank them         for particular user and return filtered markers for nearby best users.<br>
-      -For real time chat service we will use websockets (socket.io) with one to one connections only.<br>
-      -Store previous chats in database for fetching it later , save and return to frontend only few messages by deleting old messages using a queue or last in first out based datastructure.<br>
+      - We will use **Node.js** as runtime environment for running our JavaScript and **Express** for routing and other stuff, integrated with databases like **MongoDB** (for document collection) or **MySQLi** (if needed to store in tables).  
+      - Flow of the backend will be:  
+        - Express and Node setup with configured ports, env, databases.  
+        - Routes to create endpoints for different functions.  
+        - Middlewares for validating details before we hit actual endpoints.  
+        - Create and verify endpoints using **JWT tokens**.  
+        - Using **MapBox API** to create an optimized route and send it to frontend for display.  
+        - Database having tables or collections storing essential data such as user unique anonymous usernames, locations.  
+        - An endpoint where we will write overlapping route logic by comparing routes of different users nearby provided by nearby users frontend MapBox API, a basic approach can be calculating how much distance is overlapping in same direction by all users and rank them for particular user and return filtered markers for nearby best users.  
+        - For real-time chat service we will use **WebSockets (Socket.io)** with one-to-one connections only.  
+        - Store previous chats in database for fetching it later, save and return to frontend only few messages by deleting old messages using a queue or last-in-first-out based data structure.  
 
 #   A basic flow diagram:<br>
     [Frontend Request]  
