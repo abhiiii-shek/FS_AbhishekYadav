@@ -8,18 +8,18 @@ Keeping It Simple, I am going to provide the approach for this project with high
 
       - To optimize it better we will use REACT VITE or Angular instead of relying on traditional HTML and CSS.  
       - Flow of the app will be:  
-        - A **LogIn and Register Page which will send user details to the backend authentication and create user endpoint API which returns a unique username (username should be random to keep anonymity) to the frontend to display and stored in global state                      (useContext or REDUX).  
-        - Store user **JWT token** and other credentials excluding password in some store/slice.  
-        - An `/route` or `/search` page (routes) which contains a form for input source and **input destination** and a Submit button.  
+        - A LogIn and Register Page which will send user details to the backend authentication and create user endpoint API which returns a unique username (username should be random to keep anonymity) to the frontend to display and stored in global state                      (useContext or REDUX).  
+        - Store user JWT token and other credentials excluding password in some store/slice.  
+        - An `/route` or `/search` page (routes) which contains a form for input source and input destination and a Submit button.  
         - For input locations we will use address autocomplete APIs of Leaflet or any other autocomplete providing host such that user is not able to enter any non-existing address.  
-        - **Validations of inputs must also be taken care of such as required field etc.  
+        - Validations of inputs must also be taken care of such as required field etc.  
         - If possible we can allow the page to get user current location using browser navigation API for latitude and longitude coordinates.  
         - The form with source and destination is then submitted through backend route generating API for route processing.  
         - The backend provides best route with minimum obstruction which the frontend shows.  
         - For showing routes we will use Mapbox GL with pop-up marker showing location of user source and destination inputs.  
         - The pop-up marker will act as a button with username as tooltip (anonymous names) which will serve as opening a real-time chat with users nearby.  
         - When the map is displayed we will also show nearby pop-ups which fall within a certain threshold radius for sharing rides.  
-        - An **Error Page** for showing errors. If hit wrong URL or failed to fetch from APIs etc.  
+        - An Error Page for showing errors. If hit wrong URL or failed to fetch from APIs etc.  
 ---
 
     #   A basic flow diagram:<br>
